@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    
+     
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Categories</h4>
+                <p class="card-description">
+                    Add class <code>.table-striped</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Category Name
+                                </th>
+                                <th>
+                                   @*Description*@
+                                </th>
+                                <th>
+                                    Setting
+                                </th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Category ctg in Model)
+                            {
+                                <tr>
+                                    <td class="py-1">
+                                     @ctg.Name
+                                    </td>
+                                    <td>
+                                     @ctg.Description
+                                    </td>
+
+                                    <td>
+                                        $ 77.99
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success" asp-action="Detail" asp-route-id="@ctg.Id"><i class="mdi mdi-account-card-details"></i> </a>
+                                   
+                                        <a class="btn btn-warning" asp-action="Update" asp-route-id="@ctg.Id"><i class="mdi mdi-table-edit"></i>
+                                        </a>
+                                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ctg.Id"><i class="mdi mdi-delete-forever"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            } 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+
